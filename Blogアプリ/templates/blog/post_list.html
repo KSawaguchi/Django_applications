@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% for post in post_list %}
+<div class="card mb-3">
+    <h4 class="card-header bg-dark text-white">{{ post.title }}</h4>
+    <div class="card-body">
+        <p>{{ post.created_at }} {{ post.category }}</p>
+        <a href="{% url 'blog:detail' post.pk %}" class="btn btn-dark">続きを読む</a>
+    </div>
+</div>  
+{% endfor %}
+
+{% include 'blog/paging.html' %}
+
+{% endblock %}
